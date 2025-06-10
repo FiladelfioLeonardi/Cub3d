@@ -6,7 +6,7 @@
 #    By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/09 15:21:04 by fileonar          #+#    #+#              #
-#    Updated: 2025/06/10 15:29:50 by fileonar         ###   ########.fr        #
+#    Updated: 2025/06/10 16:29:58 by fileonar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ $(NAME): $(LIBMLX)/build/libmlx42.a $(LIBFT)/libft.a $(OBJS)
 	$(CC) $(OBJS) $(LIB) -ldl $(INCLUDES) $(CFLAGS) -o $(NAME)
 
 clean:
-	@rm -fr bin/*
+	@rm -fr bin
 
 fclean: clean
 	@rm -f $(NAME)
