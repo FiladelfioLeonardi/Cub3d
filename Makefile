@@ -6,50 +6,53 @@
 #    By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/09 15:21:04 by fileonar          #+#    #+#              #
-#    Updated: 2025/06/10 15:01:47 by fileonar         ###   ########.fr        #
+#    Updated: 2025/06/10 15:29:50 by fileonar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-LIBMLX = ./MLX42
 CFLAGS = -Wall -Werror -Wextra
-LIB = -lft -Llibft/ -lmlx42 -L$(LIBMLX)/build -lglfw
-HEADER = -I $(LIBMLX)/include -I libft/
+
+LIBMLX = ./MLX42
+LIBFT = ./libft
+LIB = -lft -L$(LIBFT)/ -lmlx42 -L$(LIBMLX)/build -lglfw
+INCLUDES = -I $(LIBMLX)/include -I $(LIBFT)/
 
 NAME = cub3d
 HEADER = cub3d.h
-SRC = main.c
+SRC = main.c \
+	map_checks.c \
 	
 OBJS = $(SRC:%.c=bin/%.o)
 
-all: $(NAME) 
+all: $(NAME)
+
+bin:
+	@mkdir -p bin
 
 bin/%.o : %.c $(HEADER) | bin
-	$(CC) -c -o $@ $< $(CFLAGS) $(HEADER)
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(LIBMLX)/build/libmlx42.a:
 	@git submodule update --init $(LIBMLX)
 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
 ./libft/libft.a:
-	@git submodule update --init ./libft
-	@make -C ./libft
+	@git submodule update --init $(LIBFT)
+	@make -C $(LIBFT)
 
-$(NAME): $(LIBMLX)/build/libmlx42.a ./libft/libft.a $(OBJS)
-	$(CC) -o $(NAME) $(OBJS) $(LIB) -ldl $(HEADER) $(CFLAGS)
+$(NAME): $(LIBMLX)/build/libmlx42.a $(LIBFT)/libft.a $(OBJS)
+	$(CC) $(OBJS) $(LIB) -ldl $(INCLUDES) $(CFLAGS) -o $(NAME)
 
 clean:
 	@rm -fr bin/*
-	@echo "washing my balls rn"
 
 fclean: clean
 	@rm -f $(NAME)
-	@rm -f $(NAME_BONUS)
-	@echo "dont forget to clean your 4skin"
 
 re: fclean all
 
-.PHONY: all clean fclean re clean_when_debug
+.PHONY: all clean fclean re
 
 # ifeq ($(DEBUG),1)
 # CFLAGS+=-g3
