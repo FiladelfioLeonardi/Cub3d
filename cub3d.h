@@ -6,7 +6,7 @@
 /*   By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 15:21:01 by fileonar          #+#    #+#             */
-/*   Updated: 2025/06/10 18:03:51 by fileonar         ###   ########.fr       */
+/*   Updated: 2025/06/12 13:33:48 by fileonar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,9 @@ int count_lines(int fd);
 
 void free_map(char **map);
 
-void error_msg(char *msg);
+void render_background(mlx_t *mlx);
 
+void error_msg(char *msg);
 char	*gnl(int fd);
 
 

@@ -6,7 +6,7 @@
 /*   By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 15:22:23 by fileonar          #+#    #+#             */
-/*   Updated: 2025/06/10 17:38:09 by fileonar         ###   ########.fr       */
+/*   Updated: 2025/06/12 13:48:42 by fileonar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,10 @@ int main (int argc, char **argv)
 	if (parse_map(argv[1]) == NULL)
 		return (error_msg("Failed to parse map file.\n"), 1);
 	mlx = mlx_init(800, 600, "Cub3D", true);
+	if (mlx == NULL)
+		return (error_msg("Failed to initialize MLX42.\n"), 1);
+	render_background(mlx);
 	mlx_loop(mlx);
-	
 
 	return (0);
 }

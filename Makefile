@@ -6,7 +6,7 @@
 #    By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/09 15:21:04 by fileonar          #+#    #+#              #
-#    Updated: 2025/06/10 18:04:07 by fileonar         ###   ########.fr        #
+#    Updated: 2025/06/12 13:31:45 by fileonar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRC = main.c \
 	map_checks.c \
 	utils.c \
 	gnl.c \
+	render.c \
 	
 OBJS = $(SRC:%.c=bin/%.o)
 

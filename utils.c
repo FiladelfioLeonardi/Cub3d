@@ -6,7 +6,7 @@
 /*   By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 17:26:17 by fileonar          #+#    #+#             */
-/*   Updated: 2025/06/10 18:15:37 by fileonar         ###   ########.fr       */
+/*   Updated: 2025/06/12 13:43:19 by fileonar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,9 @@ int count_lines(int fd)
 	int count = 0;
 	char *line;
 	
-	printf("Counting lines in file descriptor %d\n", fd);
 	line = gnl(fd);
 	while (line != NULL)
 	{
-		printf("Line %d: %s\n", count, line);
 		count++;
 		free(line);
 		line = gnl(fd);
