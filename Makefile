@@ -6,12 +6,12 @@
 #    By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/09 15:21:04 by fileonar          #+#    #+#              #
-#    Updated: 2025/06/10 16:29:58 by fileonar         ###   ########.fr        #
+#    Updated: 2025/06/10 18:04:07 by fileonar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 
 LIBMLX = ./MLX42
 LIBFT = ./libft
@@ -22,6 +22,8 @@ NAME = cub3d
 HEADER = cub3d.h
 SRC = main.c \
 	map_checks.c \
+	utils.c \
+	gnl.c \
 	
 OBJS = $(SRC:%.c=bin/%.o)
 

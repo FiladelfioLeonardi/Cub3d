@@ -6,7 +6,7 @@
 /*   By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 15:21:01 by fileonar          #+#    #+#             */
-/*   Updated: 2025/06/10 16:13:55 by fileonar         ###   ########.fr       */
+/*   Updated: 2025/06/10 18:03:51 by fileonar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,18 @@
 #include "MLX42/include/MLX42/MLX42.h"
 
 
+int validate_file_extension(char *map_name);
+int validate_map(char **map);
 int check_map_file(char *map_name);
+char **parse_map(char *map_name);
+
+int count_lines(int fd);
+
+void free_map(char **map);
 
 void error_msg(char *msg);
 
-
+char	*gnl(int fd);
 
 
 #endif
