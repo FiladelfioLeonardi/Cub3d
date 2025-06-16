@@ -6,12 +6,13 @@
 /*   By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 15:28:44 by fileonar          #+#    #+#             */
-/*   Updated: 2025/06/10 18:21:39 by fileonar         ###   ########.fr       */
+/*   Updated: 2025/06/13 16:47:00 by fileonar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
+//still gotta add check if the map is closed by walls
+//	
 int validate_map(char **map)
 {
 	int i = 0;
