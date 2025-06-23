@@ -6,7 +6,7 @@
 #    By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/09 15:21:04 by fileonar          #+#    #+#              #
-#    Updated: 2025/06/23 15:08:48 by fileonar         ###   ########.fr        #
+#    Updated: 2025/06/23 15:46:57 by fileonar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRC = main.c \
 OBJS = $(SRC:%.c=bin/%.o)
 
 all: $(NAME)
+	@echo "All object files compiled successfully."
 
 bin:
 	@mkdir -p bin
