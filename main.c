@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amecani <amecani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 15:22:23 by fileonar          #+#    #+#             */
-/*   Updated: 2025/06/12 15:16:38 by fileonar         ###   ########.fr       */
+/*   Updated: 2025/06/23 15:46:33 by amecani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int main (int argc, char **argv)
 	if (mlx == NULL)
 		return (error_msg("Failed to initialize MLX42.\n"), 1);
 	render_background(mlx);
+	
+	mlx_key_hook(mlx, handle_key, mlx);
 	mlx_loop(mlx);
 
 	return (0);

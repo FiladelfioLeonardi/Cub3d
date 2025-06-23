@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+         #
+#    By: amecani <amecani@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/09 15:21:04 by fileonar          #+#    #+#              #
-#    Updated: 2025/06/12 13:31:45 by fileonar         ###   ########.fr        #
+#    Updated: 2025/06/23 15:04:01 by amecani          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra -g -g3
 
 LIBMLX = ./MLX42
 LIBFT = ./libft
@@ -25,6 +25,7 @@ SRC = main.c \
 	utils.c \
 	gnl.c \
 	render.c \
+	handle_hooks.c \
 	
 OBJS = $(SRC:%.c=bin/%.o)
 
