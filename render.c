@@ -6,7 +6,7 @@
 /*   By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 13:31:54 by fileonar          #+#    #+#             */
-/*   Updated: 2025/06/12 15:38:26 by fileonar         ###   ########.fr       */
+/*   Updated: 2025/06/23 14:19:44 by fileonar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	render_background(mlx_t *mlx)
 		x = 0;
 		while (x < mlx->width)
 		{
-			mlx_put_pixel(background, x, y, 0x0000FF); // Fill with black color
+			mlx_put_pixel(background, x, y, 0xADD8E6); // Fill with black color
 			x++;
 		}
 		y++;
@@ -41,7 +41,7 @@ void	render_background(mlx_t *mlx)
 		x = 0;
 		while (x < mlx->width)
 		{
-			mlx_put_pixel(background, x, y, 0xff00ff); // Fill with green color
+			mlx_put_pixel(background, x, y, 0x0000FF); // Fill with green color
 			x++;
 		}
 		y++;
