@@ -6,7 +6,7 @@
 #    By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/09 15:21:04 by fileonar          #+#    #+#              #
-#    Updated: 2025/06/12 13:31:45 by fileonar         ###   ########.fr        #
+#    Updated: 2025/06/23 15:08:48 by fileonar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ bin:
 	@mkdir -p bin
 
 bin/%.o : %.c $(HEADER) | bin
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(LIBMLX)/build/libmlx42.a:
 	@git submodule update --init $(LIBMLX)
@@ -45,13 +45,16 @@ $(LIBMLX)/build/libmlx42.a:
 	@make -C $(LIBFT)
 
 $(NAME): $(LIBMLX)/build/libmlx42.a $(LIBFT)/libft.a $(OBJS)
-	$(CC) $(OBJS) $(LIB) -ldl $(INCLUDES) $(CFLAGS) -o $(NAME)
+	@$(CC) $(OBJS) $(LIB) -ldl $(INCLUDES) $(CFLAGS) -o $(NAME)
 
 clean:
 	@rm -fr bin
+	@make -C $(LIBFT) clean
+	@echo "Cleaned ALL object files."
 
 fclean: clean
 	@rm -f $(NAME)
+	@make -C $(LIBFT) fclean
 
 re: fclean all
 
