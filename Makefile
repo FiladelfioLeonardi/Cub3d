@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+         #
+#    By: amecani <amecani@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/09 15:21:04 by fileonar          #+#    #+#              #
-#    Updated: 2025/06/23 16:18:26 by fileonar         ###   ########.fr        #
+#    Updated: 2025/06/27 14:12:05 by amecani          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,8 @@ SRC = main.c \
 	gnl.c \
 	render.c \
 	handle_hooks.c \
+	raycasting.c \
+	printing_walls.c
 	
 OBJS = $(SRC:%.c=bin/%.o)
 

@@ -6,7 +6,7 @@
 /*   By: amecani <amecani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 15:21:01 by fileonar          #+#    #+#             */
-/*   Updated: 2025/06/23 15:50:46 by amecani          ###   ########.fr       */
+/*   Updated: 2025/06/27 16:28:24 by amecani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,55 @@
 #include "libft/libft.h"
 #include "MLX42/include/MLX42/MLX42.h"
 
+#define WIDTH 800
+#define HEIGHT 600
+
+typedef struct s_vec
+{
+	double	x;
+	double	y;
+}	t_vec;
+
+typedef struct s_all
+{
+	char **map;
+	t_vec			vec[3]; // Player position, direction, and plane
+	mlx_t			*mlx;
+	mlx_image_t		*img;
+	mlx_texture_t	*texture; // * *
+	mlx_texture_t	*walls[4]; // North, South, East, West textures
+}	t_all;
+
+typedef struct s_texture
+{
+	int		pix[2];
+	int		height;
+	int		end;
+	int		width;
+	double	wall_x;
+	double	step;
+	int		start;
+	double	pos;
+}	t_texture;
+
+typedef struct s_nearest_wall
+{
+	int    axis_hit;
+	double w_hit;
+	double w_distance;
+}	t_nearest_wall;
+
+typedef struct s_values //! Shndrydhi fare
+{
+	double distance[2]; // Distance to the wall
+	double	dir[2]; // Direction vector
+	double camx; // Camera X position
+	double steps[2]; // Steps lmao
+	int pos[2]; // pretty self-explanatory
+	int side_hit[2];
+	int   charge[2]; // Charge for horizontal and vertical walls
+	int hit; // Hit status for horizontal and vertical walls
+}	t_values;
 
 int validate_file_extension(char *map_name);
 int validate_map(char **map);
@@ -38,5 +87,10 @@ void error_msg(char *msg);
 char *gnl(int fd);
 
 void handle_key(mlx_key_data_t keydata, void *param);
+
+//Raycaxting
+void	raycasting(t_all *all);
+void	printing_walss(t_nearest_wall *wall, short x, t_all *all, t_values *r);
+
 
 #endif
