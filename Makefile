@@ -6,7 +6,7 @@
 #    By: amecani <amecani@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/09 15:21:04 by fileonar          #+#    #+#              #
-#    Updated: 2025/06/27 14:12:05 by amecani          ###   ########.fr        #
+#    Updated: 2025/06/28 15:05:42 by amecani          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ SRC = main.c \
 	render.c \
 	handle_hooks.c \
 	raycasting.c \
-	printing_walls.c
+	printing_walls.c \
+	setting_up.c
 	
 OBJS = $(SRC:%.c=bin/%.o)
 

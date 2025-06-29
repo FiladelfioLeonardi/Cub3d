@@ -6,7 +6,7 @@
 /*   By: amecani <amecani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 15:21:01 by fileonar          #+#    #+#             */
-/*   Updated: 2025/06/27 16:28:24 by amecani          ###   ########.fr       */
+/*   Updated: 2025/06/29 16:35:59 by amecani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 
 #define WIDTH 800
 #define HEIGHT 600
+# define FOV 0.66
+// # define FOV 999
 
 typedef struct s_vec
 {
@@ -33,12 +35,10 @@ typedef struct s_vec
 
 typedef struct s_all
 {
-	char **map;
-	t_vec			vec[3]; // Player position, direction, and plane
+	t_vec			vec[3];
 	mlx_t			*mlx;
 	mlx_image_t		*img;
-	mlx_texture_t	*texture; // * *
-	mlx_texture_t	*walls[4]; // North, South, East, West textures
+	mlx_texture_t	*walls[4];
 }	t_all;
 
 typedef struct s_texture
@@ -52,7 +52,6 @@ typedef struct s_texture
 	int		start;
 	double	pos;
 }	t_texture;
-
 typedef struct s_nearest_wall
 {
 	int    axis_hit;
@@ -72,6 +71,8 @@ typedef struct s_values //! Shndrydhi fare
 	int hit; // Hit status for horizontal and vertical walls
 }	t_values;
 
+
+
 int validate_file_extension(char *map_name);
 int validate_map(char **map);
 int check_map_file(char *map_name);
@@ -89,8 +90,9 @@ char *gnl(int fd);
 void handle_key(mlx_key_data_t keydata, void *param);
 
 //Raycaxting
-void	raycasting(t_all *all);
-void	printing_walss(t_nearest_wall *wall, short x, t_all *all, t_values *r);
-
+void raycasting(t_all *all);
+void	uploading_textures(mlx_texture_t *walls[4]);
+int32_t	ft_pixel(int32_t	r, int32_t g, int32_t b, int32_t a);
+void	pos(t_vec *vec, char **map);
 
 #endif

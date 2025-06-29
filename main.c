@@ -6,7 +6,7 @@
 /*   By: amecani <amecani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 15:22:23 by fileonar          #+#    #+#             */
-/*   Updated: 2025/06/27 16:18:32 by amecani          ###   ########.fr       */
+/*   Updated: 2025/06/28 17:07:06 by amecani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,28 +33,22 @@ int check_arguments(int argc, char **argv)
 int main (int argc, char **argv)
 {
 	mlx_t *mlx;
+	t_all all;
 	
 	if (check_arguments(argc, argv) == 1)
 		return (1);
 	if (parse_map(argv[1]) == NULL)
 		return (error_msg("Failed to parse map file.\n"), 1);
-	mlx = mlx_init(800, 600, "Cub3D", true);
+	mlx = mlx_init(WIDTH, HEIGHT, "Cub3D", true);
 	if (mlx == NULL)
 		return (error_msg("Failed to initialize MLX42.\n"), 1);
+	all.mlx = mlx;
+	all.img = mlx_new_image(all.mlx, WIDTH, HEIGHT);
+	mlx_image_to_window(all.mlx, all.img, 0, 0);
 
-	// Give it to me Fefo, fill me with your biological information, 1587.5 TB to be exact
-	t_all *all = malloc(sizeof(t_all));
-	char *map[] = {
-		"11111",
-		"10001",
-		"10101",
-		"10S01",
-		"11111"
-	};
-	all->map = map;
-	//
-	render_background(mlx);
-	raycasting(all);
+	// render_background(mlx);
+
+	raycasting(&all);
 	mlx_key_hook(mlx, handle_key, mlx);
 	mlx_loop(mlx);
 
