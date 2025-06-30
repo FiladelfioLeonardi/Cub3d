@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: amecani <amecani@student.42.fr>            +#+  +:+       +#+         #
+#    By: fefo <fefo@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/09 15:21:04 by fileonar          #+#    #+#              #
-#    Updated: 2025/06/28 15:05:42 by amecani          ###   ########.fr        #
+#    Updated: 2025/06/30 17:01:45 by fefo             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ $(LIBMLX)/build/libmlx42.a:
 	@make -C $(LIBFT)
 
 $(NAME): $(LIBMLX)/build/libmlx42.a $(LIBFT)/libft.a $(OBJS)
-	@$(CC) $(OBJS) $(LIB) -ldl $(INCLUDES) $(CFLAGS) -o $(NAME)
+	@$(CC) $(OBJS) $(LIB) -ldl -lm $(INCLUDES) $(CFLAGS) -o $(NAME)
 
 clean:
 	@rm -fr bin

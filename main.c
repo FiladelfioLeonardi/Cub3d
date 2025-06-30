@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amecani <amecani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fefo <fefo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 15:22:23 by fileonar          #+#    #+#             */
-/*   Updated: 2025/06/30 16:57:45 by amecani          ###   ########.fr       */
+/*   Updated: 2025/06/30 17:00:34 by fefo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ int main (int argc, char **argv)
 
 	if (check_arguments(argc, argv) == 1)
 		return (1);
-		if (parse_map(argv[1]) == NULL)
-		return (error_msg("Failed to parse map file.\n"), 1);
+	if (parse_map(argv[1]) == NULL)
+	return (error_msg("Failed to parse map file.\n"), 1);
 
 
 
