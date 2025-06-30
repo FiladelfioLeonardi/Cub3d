@@ -6,30 +6,34 @@
 /*   By: amecani <amecani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 18:44:33 by amecani           #+#    #+#             */
-/*   Updated: 2025/06/30 12:04:46 by amecani          ###   ########.fr       */
+/*   Updated: 2025/06/30 15:53:28 by amecani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	background(mlx_image_t *img)
+void	background(mlx_image_t *img, int f[3], int c[3])
 {
 	printf("Background\n");
 	unsigned short	x = 0;
 	unsigned short	y;
-	
+	(void)f;
+	(void)c;
+
 	while (x < WIDTH)
 	{
 		y = 0;
 		while (y < HEIGHT / 2)
 		{
 			mlx_put_pixel(img, x, ++y,
-				ft_pixel(75, 83,42, 0x000000FF));
+				ft_pixel(f[0], f[1], f[2], 0x000000FF));
+				// ft_pixel(255, 255, 255, 0x000000FF));
 		}
 		while (y < HEIGHT - 1)
 		{
 			mlx_put_pixel(img, x, ++y,
-				ft_pixel(255, 111, 118, 0x000000FF));
+				ft_pixel(c[0], c[1], c[2], 0x000000FF));
+				// ft_pixel(255, 255, 255, 0x000000FF));
 		}
 		x++;
 		}

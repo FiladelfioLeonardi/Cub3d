@@ -6,18 +6,23 @@
 /*   By: amecani <amecani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 14:44:35 by amecani           #+#    #+#             */
-/*   Updated: 2025/06/28 17:40:42 by amecani          ###   ########.fr       */
+/*   Updated: 2025/06/30 15:58:13 by amecani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+// void	uploading_textures(mlx_texture_t *walls[4], char *textures_locations[4])
 void	uploading_textures(mlx_texture_t *walls[4])
 {
 	walls[0] = mlx_load_png("textures/texture1.png");
 	walls[1] = mlx_load_png("textures/texture2.png");
 	walls[2] = mlx_load_png("textures/texture3.png");
 	walls[3] = mlx_load_png("textures/texture4.png");
+	// walls[0] = mlx_load_png(textures_locations[0]);
+	// walls[1] = mlx_load_png(textures_locations[1]);
+	// walls[2] = mlx_load_png(textures_locations[2]);
+	// walls[3] = mlx_load_png(textures_locations[3]);
 }
 
 void	pos(t_vec *vec, char **map)

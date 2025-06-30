@@ -6,7 +6,7 @@
 /*   By: amecani <amecani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 15:02:02 by amecani           #+#    #+#             */
-/*   Updated: 2025/06/30 12:04:22 by amecani          ###   ########.fr       */
+/*   Updated: 2025/06/30 16:00:56 by amecani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void loop(void *param)
 	t_all	*all;
 	
 	all = (t_all *)param;
-	background(all->img);
+	background(all->img, all->map_data.floor_color, all->map_data.ceiling_color);
 	raycasting(all);
 	if (mlx_is_key_down(all->mlx, MLX_KEY_ESCAPE))
 		exit(0);

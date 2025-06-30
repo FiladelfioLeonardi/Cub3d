@@ -6,7 +6,7 @@
 /*   By: amecani <amecani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 15:22:23 by fileonar          #+#    #+#             */
-/*   Updated: 2025/06/30 12:12:19 by amecani          ###   ########.fr       */
+/*   Updated: 2025/06/30 16:05:35 by amecani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,40 @@ int main (int argc, char **argv)
 	mlx_t *mlx;
 	t_all all;
 	
-	//* Fefos parsing
+	//You can test the code using the test.cub right now and it will work, ALTHOUGH
+	//     it should work instead with the child.cub map
+
+	//// FEFO parse me the following:
+
+	//// 1.Give me the location of the textures, which you can get from test.cub  (do know that only for these (char *) you have to mallocate)
+	// Example :   
+	// all.map_data->texture_location[0] = "textures/texture1.png";
+	// all.map_data->texture_location[1] = "textures/texture2.png";
+	// all.map_data->texture_location[2] = "textures/texture3.png";
+	// all.map_data->texture_location[3] = "textures/texture4.png";
+	
+	//// 2.Give me the numbers of F (floor colour) and C (ceiling colour) from test.cub
+	// Example:
+	//            FLOOR Colour :D
+	// all.map_data.floor_color[0] = 75;
+	// all.map_data.floor_color[1] = 83;
+	// all.map_data.floor_color[2] = 42;
+	
+	//            CEILING Colour :D
+	// all.map_data.ceiling_color[0] = 255;
+	// all.map_data.ceiling_color[1] = 111;
+	// all.map_data.ceiling_color[2] = 118;
+
 	if (check_arguments(argc, argv) == 1)
 		return (1);
-	if (parse_map(argv[1]) == NULL)
+		if (parse_map(argv[1]) == NULL)
 		return (error_msg("Failed to parse map file.\n"), 1);
-	//*//////////////
-	
+
+
+
+
+
+
 	mlx_set_setting(MLX_STRETCH_IMAGE, false);
 	mlx = mlx_init(WIDTH, HEIGHT, "Cub3D", false);
 	if (mlx == NULL)
@@ -49,7 +76,8 @@ int main (int argc, char **argv)
 	all.mlx = mlx;
 	all.img = mlx_new_image(all.mlx, WIDTH, HEIGHT);
 	all.mappa = parse_map(argv[1]);
-	
+
+
 	mlx_image_to_window(all.mlx, all.img, 0, 0);
 	uploading_textures(all.walls);
 	pos(all.vec, all.mappa);

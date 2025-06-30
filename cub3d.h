@@ -6,7 +6,7 @@
 /*   By: amecani <amecani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 15:21:01 by fileonar          #+#    #+#             */
-/*   Updated: 2025/06/30 11:15:29 by amecani          ###   ########.fr       */
+/*   Updated: 2025/06/30 15:58:36 by amecani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,17 @@ typedef struct s_vec
 	double	y;
 }	t_vec;
 
+typedef struct s_map_data
+{
+	char	*texture_location[4];
+	int		floor_color[3];
+	int		ceiling_color[3];
+}	t_map_data;
+
 typedef struct s_all
 {
 	char			**mappa;
+	t_map_data		map_data;
 	t_vec			vec[3];
 	mlx_t			*mlx;
 	mlx_image_t		*img;
@@ -97,8 +105,9 @@ void handle_key(mlx_key_data_t keydata, void *param);
 //Raycaxting
 void raycasting(t_all *all);
 void	uploading_textures(mlx_texture_t *walls[4]);
+// void	uploading_textures(mlx_texture_t *walls[4], char *textures_locations[4]);
 int32_t	ft_pixel(int32_t	r, int32_t g, int32_t b, int32_t a);
 void	pos(t_vec *vec, char **map);
-void	background(mlx_image_t *img);
+void	background(mlx_image_t *img, int f[3], int c[3]);
 void	loop(void *param);
 #endif
