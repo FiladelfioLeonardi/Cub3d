@@ -6,7 +6,7 @@
 /*   By: amecani <amecani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 18:44:33 by amecani           #+#    #+#             */
-/*   Updated: 2025/06/30 11:18:20 by amecani          ###   ########.fr       */
+/*   Updated: 2025/06/30 12:04:46 by amecani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,16 +129,6 @@ void	UNDER(t_values	*val, t_vec	*vec)
 
 void raycasting(t_all *all)
 {
-	printf("Raycasting\n");
-	char *mappa[] = {
-		"11111",
-		"10S01",
-		"10001",
-		"10001",
-		"11111"
-	};
-	
-	//////////////////////////////////////*
 	int		x;
 	t_values		val;
 	t_nearest_wall		wall;
@@ -165,7 +155,7 @@ void raycasting(t_all *all)
 		int	hx;
 		
 		hx = 0;
-		while (!(mappa[val.pos[1]][val.pos[0]] == '1'))
+		while (!(all->mappa[val.pos[1]][val.pos[0]] == '1'))
 		{
 			if (val.steps[0] < val.steps[1])
 			{

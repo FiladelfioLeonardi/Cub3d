@@ -6,7 +6,7 @@
 /*   By: amecani <amecani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 15:02:02 by amecani           #+#    #+#             */
-/*   Updated: 2025/06/30 10:42:24 by amecani          ###   ########.fr       */
+/*   Updated: 2025/06/30 12:04:22 by amecani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,5 @@ void loop(void *param)
 	rotation(all->vec, 1);
 	if (mlx_is_key_down(all->mlx, MLX_KEY_LEFT))
 	rotation(all->vec, -1);
-	char *mappa[] = {
-		"11111",
-		"10001",
-		"10001",
-		"11111"
-	};
-	walking(all, all->vec, mappa);
+	walking(all, all->vec, all->mappa);
 	}

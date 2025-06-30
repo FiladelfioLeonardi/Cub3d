@@ -6,7 +6,7 @@
 /*   By: amecani <amecani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 15:22:23 by fileonar          #+#    #+#             */
-/*   Updated: 2025/06/30 11:19:01 by amecani          ###   ########.fr       */
+/*   Updated: 2025/06/30 12:12:19 by amecani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,7 @@ int main (int argc, char **argv)
 		return (1);
 	if (parse_map(argv[1]) == NULL)
 		return (error_msg("Failed to parse map file.\n"), 1);
-	////////////////////////////////
-
+	//*//////////////
 	
 	mlx_set_setting(MLX_STRETCH_IMAGE, false);
 	mlx = mlx_init(WIDTH, HEIGHT, "Cub3D", false);
@@ -53,14 +52,7 @@ int main (int argc, char **argv)
 	
 	mlx_image_to_window(all.mlx, all.img, 0, 0);
 	uploading_textures(all.walls);
-	char *mappa[] = {
-		"11111",
-		"10S01",
-		"10001",
-		"10001",
-		"11111"
-	};
-	pos(all.vec, mappa);
+	pos(all.vec, all.mappa);
 	mlx_loop_hook(mlx, loop, &all);
 	mlx_loop(mlx);
 
