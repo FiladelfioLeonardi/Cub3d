@@ -6,7 +6,7 @@
 /*   By: amecani <amecani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 15:21:01 by fileonar          #+#    #+#             */
-/*   Updated: 2025/06/30 15:58:36 by amecani          ###   ########.fr       */
+/*   Updated: 2025/06/30 16:53:17 by amecani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,4 +110,6 @@ int32_t	ft_pixel(int32_t	r, int32_t g, int32_t b, int32_t a);
 void	pos(t_vec *vec, char **map);
 void	background(mlx_image_t *img, int f[3], int c[3]);
 void	loop(void *param);
+void	freeing(t_all *all);
+
 #endif

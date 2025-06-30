@@ -6,7 +6,7 @@
 /*   By: amecani <amecani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 15:02:02 by amecani           #+#    #+#             */
-/*   Updated: 2025/06/30 16:00:56 by amecani          ###   ########.fr       */
+/*   Updated: 2025/06/30 16:57:17 by amecani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,29 @@ void	rotation(t_vec *vec, short sign)
 	vec[2].y = (tmp * sa) + (vec[2].y * ca);
 }
 
+void	freeing(t_all *all)
+{
+	int	i;
+
+	i = -1;
+;
+	while(++i < 4)
+	{
+		if (all && all->walls[i])
+			mlx_delete_texture(all->walls[i]);
+		// Unlock this after finishing parsing
+		// if (all->map_data.texture_location[i])
+		// free(all->map_data.texture_location[i]);
+	}
+	if (all && all->img)
+		mlx_delete_image(all->mlx, all->img);
+	if (all && all->mlx)
+		mlx_terminate(all->mlx);
+	if (all->mappa)
+		free_map(all->mappa);
+	exit(0);
+}
+
 void loop(void *param)
 {
 	t_all	*all;
@@ -57,10 +80,10 @@ void loop(void *param)
 	background(all->img, all->map_data.floor_color, all->map_data.ceiling_color);
 	raycasting(all);
 	if (mlx_is_key_down(all->mlx, MLX_KEY_ESCAPE))
-		exit(0);
+		freeing(all);
 	if (mlx_is_key_down(all->mlx, MLX_KEY_RIGHT))
 	rotation(all->vec, 1);
 	if (mlx_is_key_down(all->mlx, MLX_KEY_LEFT))
 	rotation(all->vec, -1);
 	walking(all, all->vec, all->mappa);
-	}
+}

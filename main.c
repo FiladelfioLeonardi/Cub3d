@@ -6,7 +6,7 @@
 /*   By: amecani <amecani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 15:22:23 by fileonar          #+#    #+#             */
-/*   Updated: 2025/06/30 16:05:35 by amecani          ###   ########.fr       */
+/*   Updated: 2025/06/30 16:57:45 by amecani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ int main (int argc, char **argv)
 	pos(all.vec, all.mappa);
 	mlx_loop_hook(mlx, loop, &all);
 	mlx_loop(mlx);
-
+	mlx_terminate(mlx);
+	freeing(&all);
 	return (0);
 }
