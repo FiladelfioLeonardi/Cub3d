@@ -6,7 +6,7 @@
 /*   By: amecani <amecani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 18:44:33 by amecani           #+#    #+#             */
-/*   Updated: 2025/06/29 19:04:49 by amecani          ###   ########.fr       */
+/*   Updated: 2025/06/29 20:54:57 by amecani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	background(mlx_image_t *img)
 {
-	
+	printf("Background\n");
 	unsigned short	x = 0;
 	unsigned short	y;
 	
@@ -129,7 +129,7 @@ void	UNDER(t_values	*val, t_vec	*vec)
 
 void raycasting(t_all *all)
 {
-	background(all->img);
+	printf("Raycasting\n");
 	uploading_textures(all->walls);
 	char *mappa[] = {
 		"11111",

@@ -6,7 +6,7 @@
 /*   By: amecani <amecani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 15:21:01 by fileonar          #+#    #+#             */
-/*   Updated: 2025/06/29 16:35:59 by amecani          ###   ########.fr       */
+/*   Updated: 2025/06/30 10:31:58 by amecani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,11 @@
 #define WIDTH 800
 #define HEIGHT 600
 # define FOV 0.66
+#define ROTATION_S	0.04
+#define SPEED		0.04
 // # define FOV 999
+
+//* Replace parsing
 
 typedef struct s_vec
 {
@@ -94,5 +98,6 @@ void raycasting(t_all *all);
 void	uploading_textures(mlx_texture_t *walls[4]);
 int32_t	ft_pixel(int32_t	r, int32_t g, int32_t b, int32_t a);
 void	pos(t_vec *vec, char **map);
-
+void	background(mlx_image_t *img);
+void	loop(void *param);
 #endif
