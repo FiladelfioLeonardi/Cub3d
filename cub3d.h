@@ -6,7 +6,7 @@
 /*   By: amecani <amecani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 15:21:01 by fileonar          #+#    #+#             */
-/*   Updated: 2025/06/30 10:31:58 by amecani          ###   ########.fr       */
+/*   Updated: 2025/06/30 11:15:29 by amecani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_vec
 
 typedef struct s_all
 {
+	char			**mappa;
 	t_vec			vec[3];
 	mlx_t			*mlx;
 	mlx_image_t		*img;

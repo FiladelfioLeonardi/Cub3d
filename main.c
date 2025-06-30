@@ -6,7 +6,7 @@
 /*   By: amecani <amecani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 15:22:23 by fileonar          #+#    #+#             */
-/*   Updated: 2025/06/30 10:33:30 by amecani          ###   ########.fr       */
+/*   Updated: 2025/06/30 11:19:01 by amecani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int main (int argc, char **argv)
 	mlx_t *mlx;
 	t_all all;
 	
+	//* Fefos parsing
 	if (check_arguments(argc, argv) == 1)
 		return (1);
 	if (parse_map(argv[1]) == NULL)
@@ -48,8 +49,18 @@ int main (int argc, char **argv)
 		return (error_msg("Failed to initialize MLX42.\n"), 1);
 	all.mlx = mlx;
 	all.img = mlx_new_image(all.mlx, WIDTH, HEIGHT);
-
+	all.mappa = parse_map(argv[1]);
+	
 	mlx_image_to_window(all.mlx, all.img, 0, 0);
+	uploading_textures(all.walls);
+	char *mappa[] = {
+		"11111",
+		"10S01",
+		"10001",
+		"10001",
+		"11111"
+	};
+	pos(all.vec, mappa);
 	mlx_loop_hook(mlx, loop, &all);
 	mlx_loop(mlx);
 
